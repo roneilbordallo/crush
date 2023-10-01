@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crush</title>
+    <link rel="shortcut icon" href="cat-begging.gif" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: black;
+            position: relative;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .center {
+            margin-left: -50px;
+            margin-right: 50px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+        .btn-yes {
+            margin-left: -50px;
+            margin-right: 50px;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgb(43, 226, 226);
+            border: yes;
+            border-block-color: white;
+            width: 90px;
+        }
+
+        .btn-no {
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgb(43, 226, 226);
+            border: yes;
+            border-block-color: white;
+            width: 100px;
+            position: absolute;
+        }
+
+        .button {
+            margin-top: 50px;
+        }
+
+        .btn-yes:hover {
+            box-shadow: 0 0 5px #45f3ff, 0 0 25px #45f3ff, 0 0 50px #45f3ff, 0 0 100px #45f3ff;
+        }
+
+        .btn-no:hover {
+            box-shadow: 0 0 5px #45f3ff, 0 0 25px #45f3ff, 0 0 50px #45f3ff, 0 0 100px #45f3ff;
+        }
+
+        .container img {
+            width: 250px;
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: red;
+        }
+
+        p {
+            color: white;
+        }
+
+        .social-icons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+        }
+
+        .social-icons a {
+            margin-left: 10px;
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: rgb(43, 226, 226);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>can we hangout sometime?</h1>
+        <img src="cat-begging.gif" alt="">
+        <div class="button">
+            <button class="btn-yes" id="yes-button">YES</button>
+            <button class="btn-no">NO</button>
+        </div>
+        <p style="margin-top: 20px;">if I could be by your side, I'll give you all my life, my seasons</p>
+    </div>
+
+    <audio id="music" src=audio.mp3></audio>
+
+ 
+    <div class="social-icons">
+        <a href="https://www.facebook.com/roneil.dx" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/roneil.ig" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com/roneilbordallo" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/roneilbordallo/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+
+    <script>
+        function playMusic() {
+            const audio = document.getElementById('music');
+            audio.play();
+            alert("Thank you HAHAHAHAHAHA");
+        }
+
+        let n = document.querySelector('.btn-no');
+        n.addEventListener('mouseover', movebtn);
+
+        function movebtn() {
+            const i = Math.floor(Math.random() * 500) + 1;
+            const j = Math.floor(Math.random() * 500) + 1;
+            n.style.left = i + 'px';
+            n.style.top = j + 'px';
+        }
+
+        document.getElementById('yes-button').addEventListener('click', playMusic);
+    </script>
+</body>
+
+</html>
