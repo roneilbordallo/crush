@@ -124,7 +124,7 @@
 </head>
 
 <body>
-    <button class="toggle-button" id="toggle-mode">Toggle Dark/Light Mode</button>
+    <button class="toggle-button" id="toggle-mode">Switch to Dark Mode</button>
     <div class="container">
         <h1>Can we hang out sometime?</h1>
         <img src="cat-begging.gif" alt="Begging Cat">
@@ -165,6 +165,8 @@
 
         document.getElementById('toggle-mode').addEventListener('click', function() {
             document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            document.getElementById('toggle-mode').textContent = isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode';
         });
     </script>
 </body>
