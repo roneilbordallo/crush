@@ -5,13 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>crush</title>
+    <title>Crush</title>
     <link rel="shortcut icon" href="cat-begging.gif" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            background-color: black;
+            background-color: #f4f4f4; /* Light mode background */
+            color: #333; /* Light mode text color */
             position: relative;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background-color: #333; /* Dark mode background */
+            color: #f4f4f4; /* Dark mode text color */
         }
 
         .container {
@@ -22,33 +29,34 @@
         }
 
         .center {
-            margin-left: -50px;
-            margin-right: 50px;
-            display: block;
             margin-left: auto;
             margin-right: auto;
             width: 50%;
         }
 
         .btn-yes {
-            margin-left: -50px;
-            margin-right: 50px;
+            margin: 10px;
             padding: 10px;
             border-radius: 10px;
-            background-color: rgb(43, 226, 226);
-            border: yes;
-            border-block-color: white;
+            background-color: #007bff; /* Blue background */
+            border: none;
+            color: #fff;
             width: 90px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
 
         .btn-no {
+            margin: 10px;
             padding: 10px;
             border-radius: 10px;
-            background-color: rgb(43, 226, 226);
-            border: yes;
-            border-block-color: white;
+            background-color: #dc3545; /* Red background */
+            border: none;
+            color: #fff;
             width: 100px;
-            position: absolute;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            position: relative;
         }
 
         .button {
@@ -56,11 +64,13 @@
         }
 
         .btn-yes:hover {
-            box-shadow: 0 0 5px #45f3ff, 0 0 25px #45f3ff, 0 0 50px #45f3ff, 0 0 100px #45f3ff;
+            background-color: #0056b3;
+            box-shadow: 0 0 5px #0056b3, 0 0 25px #0056b3, 0 0 50px #0056b3, 0 0 100px #0056b3;
         }
 
         .btn-no:hover {
-            box-shadow: 0 0 5px #45f3ff, 0 0 25px #45f3ff, 0 0 50px #45f3ff, 0 0 100px #45f3ff;
+            background-color: #c82333;
+            box-shadow: 0 0 5px #c82333, 0 0 25px #c82333, 0 0 50px #c82333, 0 0 100px #c82333;
         }
 
         .container img {
@@ -69,11 +79,11 @@
         }
 
         h1 {
-            color: red;
+            color: #007bff; /* Blue color */
         }
 
         p {
-            color: white;
+            color: #333;
         }
 
         .social-icons {
@@ -85,31 +95,48 @@
 
         .social-icons a {
             margin-left: 10px;
-            color: white;
+            color: #333;
             font-size: 24px;
             text-decoration: none;
         }
 
         .social-icons a:hover {
-            color: rgb(43, 226, 226);
+            color: #007bff;
+        }
+
+        .toggle-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 
 <body>
+    <button class="toggle-button" id="toggle-mode">Toggle Dark/Light Mode</button>
     <div class="container">
-        <h1>can we hangout sometime?</h1>
-        <img src="cat-begging.gif" alt="">
+        <h1>Can we hang out sometime?</h1>
+        <img src="cat-begging.gif" alt="Begging Cat">
         <div class="button">
             <button class="btn-yes" id="yes-button">YES</button>
             <button class="btn-no">NO</button>
         </div>
-        <p style="margin-top: 20px;">if I could be by your side, I'll give you all my life, my seasons</p>
+        <p style="margin-top: 20px;">If I could be by your side, I'll give you all my life, my seasons</p>
     </div>
 
-    <audio id="music" src=audio.mp3></audio>
+    <audio id="music" src="audio.mp3" preload="auto"></audio>
 
- 
     <div class="social-icons">
         <a href="https://www.facebook.com/roneil.dx" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://www.instagram.com/roneil.ig" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -124,9 +151,6 @@
             alert("Thank you HAHAHAHAHAHA");
         }
 
-        let n = document.querySelector('.btn-no');
-        n.addEventListener('mouseover', movebtn);
-
         function movebtn() {
             const i = Math.floor(Math.random() * 500) + 1;
             const j = Math.floor(Math.random() * 500) + 1;
@@ -135,6 +159,13 @@
         }
 
         document.getElementById('yes-button').addEventListener('click', playMusic);
+
+        let n = document.querySelector('.btn-no');
+        n.addEventListener('mouseover', movebtn);
+
+        document.getElementById('toggle-mode').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
     </script>
 </body>
 
